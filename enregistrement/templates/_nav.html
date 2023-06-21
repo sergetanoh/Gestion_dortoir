@@ -1,0 +1,15 @@
+<nav class="navbar navbar-dark default-color justify-content-between ">
+    <a class="navbar-brand" href="{% url 'home' %}">ENSEA</a>
+    <a class="navbar-brand" href="#">Contact</a>
+    <a class="navbar-brand" href="#"> à propos de nous</a>
+    <form class="form-inline my-1" action="{% url 'search' %}">
+      <div class="md-form form-sm my-0">
+        {% if user.is_authenticated %}
+        <a href="{% url 'my-article'%}" class="btn btn-primary">Page admin</a>
+        {% else %}
+        <a href="{% url 'login-blog' %}" class="btn btn-primary">Connexion</a>
+        {% endif %}
+        <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search" aria-label="Search" name="article">
+      </div>
+    </form>
+  </nav>

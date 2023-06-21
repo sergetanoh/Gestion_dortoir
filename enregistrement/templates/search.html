@@ -1,0 +1,35 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="text-center mt-3"> Listes de recherches </h1> <!-- la classe va nous permettre de centrer notre text -->
+<div class="container">
+    <div class="row"> <!-- permet de les mettres en lignes -->
+{% for etudiant in liste_etudiants %}
+
+        <div class="col-12 col-md-6 col-lg-3 col-xl-3 mb-2">
+            <div class="card p-2 ">  <!-- veut dire que tu ocuperas trois colum et ml-1 veut dire que pour marge 1 p-2 veut dire marge interieure-->
+                
+                <a href="">
+                    <img src="{% static 'img/logoe.jpeg' %}" class="card-img-top" alt="Fissure in Sandstone" style="height :200px;"/>
+                </a>
+                
+                <div class="card-body" style="height: 230px;">
+                    <h5 class="card-title"><a href=""> Nom :{{etudiant.nom}}</a></h5>
+                    <h5 class="card-text"> Prenom :{{etudiant.prenom |truncatewords:10}}</h5>  <!-- truncatewords  permet de couper la phrase en affichant 10 mots -->
+                    <h5 class="card-text">Batiment  :{{ etudiant.chambre.batiment.nom }}</h5>
+                    <h5 class="card-text">Numero de Chambre : {{etudiant.chambre.numero}}</h5>
+                </div>
+            </div>
+        </div>
+ {% endfor %}       
+    </div>
+</div>
+
+
+{% endblock %}
+ 
+
+
